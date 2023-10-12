@@ -10,6 +10,8 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
 import { OverviewComponent } from './overview/overview.component';
 import { AboutComponent } from './about/about.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddArticleComponent,
     EditArticleComponent,
     OverviewComponent,
-    AboutComponent
+    AboutComponent,
+    DetailArticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

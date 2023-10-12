@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-article.component.css']
 })
 export class EditArticleComponent {
-
+  //TODO add API patch request
 }

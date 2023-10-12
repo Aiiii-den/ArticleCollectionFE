@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-article.component.css']
 })
 export class AddArticleComponent {
-
+  // TODO add API post request
 }
