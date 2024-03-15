@@ -49,4 +49,16 @@ export class OverviewComponent {
       complete: () => console.log('Filtering completed')
     });
   }
+
+  deleteArticle(id: string): void {
+    // Call the service's delete method
+    this.ar.deleteEntryByID(id).subscribe({
+      next: () => {
+        // If deletion is successful, remove the article from the local array
+        this.articles = this.articles.filter(article => article._id !== id);
+      },
+      error: (err) => console.log(err),
+      complete: () => console.log('Article deleted')
+    });
+  }
 }

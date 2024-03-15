@@ -30,4 +30,14 @@ export class ApiRequestsService {
   }
   //TODO post, update, delete
 
+  updateEntryByID(id: string, updatedArticle: Article): Observable<Article> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.put<Article>(url, updatedArticle);
+  }
+
+  deleteEntryByID(id: string): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
+
 }

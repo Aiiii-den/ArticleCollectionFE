@@ -1,28 +1,26 @@
 <div class="container mt-3">
   <div class="row">
-    <!-- For selecting multiple languages -->
-    <div class="col-md-6">
+    <div class="col-md-6 mb-3">
       <label>LANGUAGES</label>
-      <select class="form-control mt-3 custom-select" multiple [(ngModel)]="selectedLanguage">
-        <option value="English">Korean</option>
-        <option value="Spanish">English</option>
-        <option value="French">German</option>
-        <!-- Add more language options as needed -->
+      <select class="form-control custom-select" multiple [(ngModel)]="selectedLanguage">
+        <option value="Korean">Korean</option>
+        <option value="English">English</option>
+        <option value="German">German</option>
+        <option value="Spanish">Spanish</option>
       </select>
     </div>
 
-    <!-- For selecting multiple topics -->
-    <div class="col-md-6">
+    <div class="col-md-6 mb-3">
       <label>TOPICS</label>
-      <select class="form-control mt-3 custom-select" multiple [(ngModel)]="selectedTopic">
+      <select class="form-control custom-select" multiple [(ngModel)]="selectedTopic">
         <option value="Technology">Technology</option>
-        <option value="Science">Health</option>
-        <option value="Art">Education</option>
-        <!-- Add more topic options as needed -->
+        <option value="Education">Education</option>
+        <option value="Health">Health</option>
+        <option value="Music">Music</option>
       </select>
     </div>
 
-    <!-- Filter button -->
+
     <div class="col-md-12 text-right">
       <button class="btn btn-success mt-3" (click)="filterArticles()">Filter</button>
     </div>
@@ -37,6 +35,7 @@
         <th scope="col">ID</th>
         <th scope="col">Title</th>
         <th scope="col">Summary</th>
+        <th scope="col">Source</th>
         <th scope="col">Language</th>
         <th scope="col">Topic</th>
         <th scope="col">Action</th>
@@ -45,13 +44,18 @@
       <tbody>
       <tr *ngFor="let article of articles; let i=index; ">
         <td>{{ i+1 }}</td>
-        <td><a [href]="article.link" target="_blank">{{ article.title }}</a></td>
+        <td [routerLink]="['/detail-article/', article._id]">{{ article.title }}</td>
         <td>{{ article.summary }}</td>
+        <td><a [href]="article.link" target="_blank">{{ article.source }}</a></td>
         <td class="flag-column"><img [src]="'assets/country_flags/' + article.language + '_q.png'" alt="{{ article.language }}" class="flag-icon" /></td>
         <td>{{article.topic}}</td>
         <td>
-          <button class="btn btn-link"><i class="bi bi-pencil-square"></i></button>
-          <button class="btn btn-link"><i class="bi bi-trash"></i></button>
+          <button class="btn btn-link" [routerLink]="['/edit-article', article._id]">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button class="btn btn-link" (click)="deleteArticle(article._id)">
+            <i class="bi bi-trash"></i>
+          </button>
         </td>
       </tr>
       </tbody>
