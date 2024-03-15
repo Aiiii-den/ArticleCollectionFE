@@ -3,3 +3,55 @@
 main {
   background-color: grey;
 }
+
+td[routerLink] {
+  cursor: pointer;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filter-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+td a {
+  color: black;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Style for underline */
+td a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: green;
+}
+
+.btn-link i {
+  color: green;
+}
+
+.flag-column{
+  /*text-align: center;*/
+}
+
+.flag-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

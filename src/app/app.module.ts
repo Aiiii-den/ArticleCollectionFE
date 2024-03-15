@@ -11,7 +11,9 @@ import { OverviewComponent } from './overview/overview.component';
 import { AboutComponent } from './about/about.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

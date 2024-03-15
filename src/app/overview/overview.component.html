@@ -1,24 +1,64 @@
-<main class="d-flex align-items-center min-vh-100">
-  <div class="container text-center">
-    Welcome home!
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label>LANGUAGES</label>
+      <select class="form-control custom-select" multiple [(ngModel)]="selectedLanguage">
+        <option value="Korean">Korean</option>
+        <option value="English">English</option>
+        <option value="German">German</option>
+        <option value="Spanish">Spanish</option>
+      </select>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label>TOPICS</label>
+      <select class="form-control custom-select" multiple [(ngModel)]="selectedTopic">
+        <option value="Technology">Technology</option>
+        <option value="Education">Education</option>
+        <option value="Health">Health</option>
+        <option value="Music">Music</option>
+      </select>
+    </div>
+
+
+    <div class="col-md-12 text-right">
+      <button class="btn btn-success mt-3" (click)="filterArticles()">Filter</button>
+    </div>
   </div>
-</main>
 
-<!--
-  implement the following components:
-    div for filter function:
-      two filter options: language (multi choice), topic (multi choice)
-      button: queries the request
-      -> overwrites the table with queried results
 
-    div for table with the following rows:
-      Title (url is hyperlinked)
-      Topic
-      Language (first plain text - later as image)
-      Summary
-      Edit icon
-      Delete icon
-     -> extra implement sorting function
-
-    div/button for add-article
--->
+  <h3 class="m-3">All Articles</h3>
+  <div class="table-responsive">
+    <table class="m-3 table table-striped table-hover">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Summary</th>
+        <th scope="col">Source</th>
+        <th scope="col">Language</th>
+        <th scope="col">Topic</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let article of articles; let i=index; ">
+        <td>{{ i+1 }}</td>
+        <td [routerLink]="['/detail-article/', article._id]">{{ article.title }}</td>
+        <td>{{ article.summary }}</td>
+        <td><a [href]="article.link" target="_blank">{{ article.source }}</a></td>
+        <td class="flag-column"><img [src]="'assets/country_flags/' + article.language + '_q.png'" alt="{{ article.language }}" class="flag-icon" /></td>
+        <td>{{article.topic}}</td>
+        <td>
+          <button class="btn btn-link" [routerLink]="['/edit-article', article._id]">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button class="btn btn-link" (click)="deleteArticle(article._id)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
