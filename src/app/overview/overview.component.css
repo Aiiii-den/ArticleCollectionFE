@@ -3,3 +3,50 @@
 main {
   background-color: grey;
 }
+
+.container {
+  max-width: 1200px; /* Adjust as needed */
+}
+
+.filter-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Right align the filter box */
+.text-right {
+  text-align: right;
+}
+
+
+td a {
+  color: black; /* Change to the desired color for link text */
+  text-decoration: none; /* Remove default underline */
+  position: relative; /* Set position relative for pseudo-element */
+}
+
+/* Style for underline */
+td a::after {
+  content: ""; /* Create pseudo-element */
+  position: absolute; /* Position the pseudo-element absolutely */
+  left: 0; /* Align with the left edge of the link */
+  bottom: -2px; /* Adjust distance from text */
+  width: 100%; /* Full width of the link */
+  height: 1px; /* Thickness of the underline */
+  background-color: green; /* Color of the underline */
+}
+
+.btn-link i {
+  color: green;
+}
+
+.flag-column{
+  /*text-align: center;*/
+}
+
+.flag-icon {
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  border-radius: 50%;
+}

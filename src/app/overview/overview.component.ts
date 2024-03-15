@@ -9,6 +9,8 @@ import {Article} from "../shared/article";
 })
 export class OverviewComponent {
   articles!: Article[];
+  selectedLanguage: string[] = [];
+  selectedTopic: string[] = [];
 
   constructor(private ar: ApiRequestsService) {
   }
@@ -17,10 +19,11 @@ export class OverviewComponent {
     this.readAll();
   }
 
+  /*
   // TODO implement the form to get filter parameter
   onFilter(): void {
-//    this.filterArticles(this.selectedLanguage, this.selectedTopics)
-  }
+      this.filterArticles(this.selectedLanguage, this.selectedTopics)
+  }*/
 
   readAll(): void {
     this.ar.getAll().subscribe(
@@ -35,16 +38,15 @@ export class OverviewComponent {
       })
   }
 
-  filterArticles(languages: string[], topics: string[]): void {
-    this.ar.getFiltered(languages, topics).subscribe(
-      {
-        next: (response) => {
-          this.articles = response;
-          console.log(this.articles);
-          return this.articles;
-        },
-        error: (err) => console.log(err),
-        complete: () => console.log('getFiltered() completed')
-      })
+  filterArticles(): void {
+    // Pass searchQuery to service method for filtering
+    this.ar.getFiltered(this.selectedLanguage,this.selectedTopic, ).subscribe({
+      next: (response) => {
+        this.articles = response;
+        console.log(this.articles);
+      },
+      error: (err) => console.log(err),
+      complete: () => console.log('Filtering completed')
+    });
   }
 }
