@@ -26,7 +26,7 @@ export class OverviewComponent {
   }*/
 
   readAll(): void {
-    this.ar.getAll().subscribe(
+    this.ar.getAllEntries().subscribe(
       {
         next: (response) => {
           this.articles = response;
@@ -40,7 +40,7 @@ export class OverviewComponent {
 
   filterArticles(): void {
     // Pass searchQuery to service method for filtering
-    this.ar.getFiltered(this.selectedLanguage,this.selectedTopic, ).subscribe({
+    this.ar.getFilteredEntries(this.selectedLanguage,this.selectedTopic, ).subscribe({
       next: (response) => {
         this.articles = response;
         console.log(this.articles);

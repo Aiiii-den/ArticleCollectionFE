@@ -31,8 +31,8 @@ import {NgOptimizedImage} from "@angular/common";
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule,
     FormsModule,
+    HttpClientModule,
     NgOptimizedImage
   ],
   providers: [],
