@@ -7,7 +7,7 @@ import {Article} from "./article";
   providedIn: 'root'
 })
 export class ApiRequestsService {
-  baseUrl = 'https://article-summaries.onrender.com/article';
+  baseUrl = 'http://localhost:3000/article';
   constructor(private http: HttpClient) { }
 
   getAllEntries(): Observable<Article[]>{
