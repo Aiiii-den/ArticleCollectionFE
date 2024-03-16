@@ -33,7 +33,6 @@ export class OverviewComponent implements OnInit{
   }
 
   filterArticles(): void {
-    // Pass searchQuery to service method for filtering
     this.ar.getFilteredEntries(this.selectedLanguage,this.selectedTopic, ).subscribe({
       next: (response) => {
         this.articles = response;
@@ -45,10 +44,8 @@ export class OverviewComponent implements OnInit{
   }
 
   deleteArticle(id: string): void {
-    // Call the service's delete method
     this.ar.deleteEntryByID(id).subscribe({
       next: () => {
-        // If deletion is successful, remove the article from the local array
         this.articles = this.articles.filter(article => article._id !== id);
       },
       error: (err) => console.log(err),
