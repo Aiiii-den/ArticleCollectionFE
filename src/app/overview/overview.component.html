@@ -1,7 +1,7 @@
 <div class="container mt-3">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-6 mb-3">
-      <label>LANGUAGES</label>
+      <label><h5>Languages</h5></label>
       <select class="form-control custom-select" multiple [(ngModel)]="selectedLanguage">
         <option value="Korean">Korean</option>
         <option value="English">English</option>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <label>TOPICS</label>
+      <label><h5>Topics</h5></label>
       <select class="form-control custom-select" multiple [(ngModel)]="selectedTopic">
         <option value="Technology">Technology</option>
         <option value="Education">Education</option>
@@ -20,44 +20,34 @@
       </select>
     </div>
 
-
     <div class="col-md-12 text-right">
       <button class="btn btn-success mt-3" (click)="filterArticles()">Filter</button>
     </div>
   </div>
-
 
   <h3 class="m-3">All Articles</h3>
   <div class="table-responsive">
     <table class="m-3 table table-striped table-hover">
       <thead>
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Title</th>
-        <!--<th scope="col">Summary</th>-->
-        <th scope="col">Source</th>
-        <th scope="col">Language</th>
-        <th scope="col">Topic</th>
-        <th scope="col">Action</th>
+        <th scope="col" class="col-1">ID</th>
+        <th scope="col" class="col-2">Title</th>
+        <th scope="col" class="col-1">Source</th>
+        <th scope="col" class="col-1">Language</th>
+        <th scope="col" class="col-1">Topic</th>
+        <th scope="col" class="col-1">Action</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let article of articles; let i=index; ">
         <td>{{ i + 1 }}</td>
-        <td [routerLink]="['/detail-article/', article._id]" class="mouse-pointer">{{ article.title }}&nbsp;<i
-          class="bi bi-book"></i></td>
-        <td><a href="{{ article.link }}" target="_blank">{{article.source }}&nbsp;<i
-          class="bi bi-arrow-up-right-square"></i></a></td>
-        <td class="flag-column"><img [src]="'assets/country_flags/' + article.language.toLowerCase() + '_q.png'"
-                                     alt="{{ article.language }}" class="flag-icon"/></td>
+        <td [routerLink]="['/detail-article/', article._id]" class="mouse-pointer">{{ article.title }}&nbsp;<i class="bi bi-zoom-in"></i></td>
+        <td><a href="{{ article.link }}" target="_blank">{{article.source }}&nbsp;<i class="bi bi-arrow-up-right-square"></i></a></td>
+        <td class="flag-column"><img [src]="'assets/country_flags/' + article.language.toLowerCase() + '_q.png'" alt="{{ article.language }}" class="flag-icon"/></td>
         <td>{{article.topic}}</td>
         <td>
-          <button class="btn btn-link" [routerLink]="['/edit-article', article._id]">
-            <i class="bi bi-pencil-square"></i>
-          </button>
-          <button class="btn btn-link" (click)="deleteArticle(article._id)">
-            <i class="bi bi-trash"></i>
-          </button>
+          <button class="btn btn-link" [routerLink]="['/edit-article', article._id]"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn btn-link" (click)="deleteArticle(article._id)"><i class="bi bi-trash"></i></button>
         </td>
       </tr>
       </tbody>

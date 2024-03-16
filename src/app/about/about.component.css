@@ -18,3 +18,10 @@
   margin-left: 5px; /* Adjust margin as needed */
   border-radius: 50%;
 }
+
+.container {
+  min-height: 100vh;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  overflow-y: auto;
+}

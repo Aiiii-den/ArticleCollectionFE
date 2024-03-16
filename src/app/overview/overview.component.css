@@ -2,12 +2,10 @@
 
 .container {
   min-height: 100vh;
-  max-width: 1200px;
   margin-bottom: 5px;
   padding-bottom: 5px;
   overflow-y: auto;
 }
-
 .filter-box {
   border: 1px solid #ccc;
   padding: 20px;

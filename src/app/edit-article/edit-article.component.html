@@ -1,4 +1,4 @@
-<main class="d-flex min-vh-100 pb-5">
+<div class="container mt-3">
   <fieldset class="container mt-5">
     <legend *ngIf="article" class="mb-4">Article Details</legend>
     <form [formGroup]="form" (ngSubmit)="update()">
@@ -58,4 +58,4 @@
       </div>
     </form>
   </fieldset>
-</main>
+</div>
