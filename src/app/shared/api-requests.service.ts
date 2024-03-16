@@ -18,15 +18,19 @@ export class ApiRequestsService {
     let params = new HttpParams();
     if (language!=null && language.length>0) {
       for (const value of language) {
-        params = params.append('l', value.toLowerCase());
+        params = params.append('l', value);
       }
     }
     if (topic!=null && topic.length>0) {
       for (const value of topic) {
-        params = params.append('t', value.toLowerCase());
+        params = params.append('t', value);
       }
     }
     return this.http.get<Article[]>(this.baseUrl, {params});
+  }
+
+  addEntry(newArticle: Article): Observable<Article>{
+    return this.http.post<Article>(this.baseUrl, newArticle);
   }
 
   getEntryByID(id: string): Observable<Article>{
