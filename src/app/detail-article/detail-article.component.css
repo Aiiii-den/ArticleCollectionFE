@@ -1,0 +1,6 @@
+.container {
+  min-height: 100vh;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  overflow-y: auto;
+}

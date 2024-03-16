@@ -1,58 +1,59 @@
-<main class="d-flex min-vh-100">
-  <fieldset class="container  mt-5">
-    <legend *ngIf="article" class="mb-4"> Article Details
-    </legend>
-    <legend *ngIf="!article" class="mb-4">Article overview</legend>
+<div class="container mt-3">
+  <fieldset class="container mt-5">
+    <legend *ngIf="article" class="mb-4"><h4>Article Details</h4></legend>
+    <legend *ngIf="!article" class="mb-4">Article Overview</legend>
     <form [formGroup]="form" (ngSubmit)="cancel()">
       <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="title">Title</label>
-        <div class="col-10">
-          <input type="text" class="form-control" id="title" placeholder="Title"
-                 formControlName="titleControl" readonly/>
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="source">source</label>
-        <div class="col-10">
-          <input type="text" class="col-10 form-control" id="source" placeholder="source"
-                 formControlName="sourceControl" readonly/>
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="link">link</label>
-        <div class="col-10">
-          <input type="text" class="col-10 form-control" id="link" placeholder="link" formControlName="linkControl"
+        <label class="col-sm-2 col-form-label" for="title">Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="title" placeholder="Title" formControlName="titleControl"
                  readonly/>
         </div>
       </div>
       <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="summary">summary</label>
-        <div class="col-10">
-          <textarea class="col-10 form-control" id="summary" placeholder="Summary" formControlName="summaryControl"
+        <label class="col-sm-2 col-form-label" for="source">Source</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="source" placeholder="Source" formControlName="sourceControl"
+                 readonly/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label" for="link">Link</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="link" placeholder="Link" formControlName="linkControl" readonly/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label" for="summary">Summary</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="summary" placeholder="Summary" formControlName="summaryControl"
                     readonly></textarea>
         </div>
       </div>
       <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="topic">Topic</label>
-        <div class="col-10">
-          <input type="text" class="col-10 form-control" id="topic" placeholder="topic"
-                 formControlName="topicControl" readonly/>
+        <label class="col-sm-2 col-form-label" for="topic">Topic</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="topic" placeholder="Topic" formControlName="topicControl"
+                 readonly/>
         </div>
       </div>
       <div class="mb-3 row">
-        <label class="col-2 col-form-label" for="language">Language</label>
-        <div class="col-10">
-          <input type="text" class="col-10 form-control" id="language" placeholder="language"
-                 formControlName="languageControl" readonly/>
+        <label class="col-sm-2 col-form-label" for="language">Language</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="language" placeholder="Language" formControlName="languageControl"
+                 readonly/>
         </div>
       </div>
-
-      <div class="row ">
-        <button type="button" class="col-5 btn btn-success" (click)="cancel()">Go Back</button>
-        <div class="col-2"></div>
-        <button type="submit" class="col-5 btn btn-success" [routerLink]="['/edit-article', article._id]">Edit</button>
+      <div class="row mt-3 align-items-center d-flex">
+        <div class="col-sm-6 col-12">
+          <button type="button" class="btn btn-light btn-block mb-2 mb-sm-0" [routerLink]="['/overview']">Go Back
+          </button>
+        </div>
+        <div class="col-sm-6 col-12 d-flex justify-content-sm-end">
+          <button type="submit" class="btn btn-success btn-block" [routerLink]="['/edit-article', article._id]">Edit
+          </button>
+        </div>
       </div>
     </form>
   </fieldset>
-</main>
-
+</div>
