@@ -1,6 +1,65 @@
-<p>edit-article works!</p>
-<!--
-  basically the same as add article (two buttons):
-    cancel -> goes back to overview
-    submit -> sends request with changes to the API
--->
+<main class="d-flex min-vh-100">
+  <fieldset class="container  mt-5">
+    <legend *ngIf="article" class="mb-4"> Update article: {{ article.title }}
+    </legend>
+    <legend *ngIf="!article" class="mb-4">Edit</legend>
+    <form [formGroup]="form" (ngSubmit)="update()">
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="title">Title</label>
+        <div class="col-10">
+          <input type="text" class="form-control" id="title" placeholder="Title"
+                 formControlName="titleControl"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="source">source</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="source" placeholder="source"
+                 formControlName="sourceControl"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="link">link</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="link" placeholder="link" formControlName="linkControl"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="summary">summary</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="summary" placeholder="summary"
+                 formControlName="summaryControl"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="topic">Topic</label>
+        <div class="col-10">
+          <select class="col-10 form-control" id="topic" formControlName="topicControl">
+            <option value="Technology">Technology</option>
+            <option value="Education">Education</option>
+            <option value="Health">Health</option>
+            <option value="Music">Music</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="language">Language</label>
+        <div class="col-10">
+          <select class="col-10 form-control" id="language" formControlName="languageControl">
+            <option value="Korean">Korean</option>
+            <option value="English">English</option>
+            <option value="German">German</option>
+            <option value="French">French</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row ">
+        <button type="button" class="col-5 btn btn-success"  (click)="cancel()">Go Back</button>
+        <div class="col-2"></div>
+        <button type="submit" class="col-5 btn btn-success" (click)="update()">Save</button>
+      </div>
+    </form>
+  </fieldset>
+</main>

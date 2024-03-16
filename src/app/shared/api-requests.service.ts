@@ -10,11 +10,11 @@ export class ApiRequestsService {
   baseUrl = 'http://localhost:3000/article';
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Article[]>{
+  getAllEntries(): Observable<Article[]>{
     return this.http.get<Article[]>(this.baseUrl);
   }
 
-  getFiltered(language?: string[], topic?: string[]): Observable<Article[]> {
+  getFilteredEntries(language?: string[], topic?: string[]): Observable<Article[]> {
     let params = new HttpParams();
     if (language!=null && language.length>0) {
       for (const value of language) {
@@ -28,11 +28,14 @@ export class ApiRequestsService {
     }
     return this.http.get<Article[]>(this.baseUrl, {params});
   }
-  //TODO post, update, delete
+
+  getEntryByID(id: string): Observable<Article>{
+    return this.http.get<Article>(this.baseUrl + '/' + id);
+  }
 
   updateEntryByID(id: string, updatedArticle: Article): Observable<Article> {
     const url = `${this.baseUrl}/${id}`;
-    return this.http.put<Article>(url, updatedArticle);
+    return this.http.patch<Article>(url, updatedArticle);
   }
 
   deleteEntryByID(id: string): Observable<void> {
