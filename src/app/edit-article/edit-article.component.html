@@ -1,6 +1,6 @@
 <main class="d-flex min-vh-100">
   <fieldset class="container  mt-5">
-    <legend *ngIf="article" class="mb-4"> Article: {{ article.title }}
+    <legend *ngIf="article" class="mb-4"> Update article: {{ article.title }}
     </legend>
     <legend *ngIf="!article" class="mb-4">Edit</legend>
     <form [formGroup]="form" (ngSubmit)="update()">
