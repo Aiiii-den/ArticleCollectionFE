@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <fieldset class="container mt-5">
-    <legend *ngIf="article" class="mb-4">Article Details</legend>
+    <legend *ngIf="article" class="mb-4"><h4>Article Details</h4></legend>
     <legend *ngIf="!article" class="mb-4">Article Overview</legend>
     <form [formGroup]="form" (ngSubmit)="cancel()">
       <div class="mb-3 row">

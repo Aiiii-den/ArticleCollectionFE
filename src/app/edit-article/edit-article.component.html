@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <fieldset class="container mt-5">
-    <legend *ngIf="article" class="mb-4">Article Details</legend>
+    <legend *ngIf="article" class="mb-4"><h4>Edit Article</h4></legend>
     <form [formGroup]="form" (ngSubmit)="update()">
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label" for="title">Title</label>
@@ -53,7 +53,7 @@
           <button type="button" class="btn btn-light btn-block mb-2 mb-sm-0" [routerLink]="['/overview']">Go Back</button>
         </div>
         <div class="col-sm-6 col-12 d-flex justify-content-sm-end">
-          <button type="submit" class="btn btn-success btn-block" [routerLink]="['/edit-article', article._id]">Edit</button>
+          <button type="submit" class="btn btn-success btn-block">Update</button>
         </div>
       </div>
     </form>
