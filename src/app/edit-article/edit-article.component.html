@@ -1,6 +1,6 @@
 <main class="d-flex min-vh-100">
   <fieldset class="container  mt-5">
-    <legend *ngIf="article" class="mb-4"> Update article: {{ article.title }}
+    <legend *ngIf="article" class="mb-4"> Update Article
     </legend>
     <legend *ngIf="!article" class="mb-4">Edit</legend>
     <form [formGroup]="form" (ngSubmit)="update()">
@@ -27,8 +27,8 @@
       <div class="mb-3 row">
         <label class="col-2 col-form-label" for="summary">summary</label>
         <div class="col-10">
-          <input type="text" class="col-10 form-control" id="summary" placeholder="summary"
-                 formControlName="summaryControl"/>
+          <textarea class="col-10 form-control" id="summary" placeholder="Summary" formControlName="summaryControl"
+          ></textarea>
         </div>
       </div>
       <div class="mb-3 row">
@@ -56,9 +56,9 @@
 
 
       <div class="row ">
-        <button type="button" class="col-5 btn btn-success"  (click)="cancel()">Go Back</button>
+        <button type="button" class="col-5 btn btn-success" [routerLink]="['/overview']">Go Back</button>
         <div class="col-2"></div>
-        <button type="submit" class="col-5 btn btn-success" (click)="update()">Save</button>
+        <button type="submit" class="col-5 btn btn-success" (click)="update()">Update</button>
       </div>
     </form>
   </fieldset>

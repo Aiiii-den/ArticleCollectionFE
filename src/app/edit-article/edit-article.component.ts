@@ -3,7 +3,6 @@ import {Article} from "../shared/article";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ApiRequestsService} from "../shared/api-requests.service";
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-edit-article',
@@ -26,14 +25,11 @@ export class EditArticleComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private as: ApiRequestsService,
-    private location: Location,
     private router: Router
   ) {
   }
 
-  ngOnInit()
-    :
-    void {
+  ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     this.getOneByID(this.id);
   }
@@ -82,7 +78,5 @@ export class EditArticleComponent implements OnInit {
     this.router.navigateByUrl('/overview');
   }
 
-  cancel(): void {
-    this.location.back();
-  }
+
 }

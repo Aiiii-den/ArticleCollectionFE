@@ -14,10 +14,13 @@ td{
 
 
 .container {
+  min-height: 100vh;
   max-width: 1200px;
   margin-bottom: 0;
   padding-bottom: 0;
+  overflow-y: auto; /* Enable vertical scrolling */
 }
+
 
 .filter-box {
   border: 1px solid #ccc;
