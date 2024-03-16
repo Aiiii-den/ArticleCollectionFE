@@ -75,9 +75,7 @@ export class EditArticleComponent implements OnInit {
           complete: () => console.log('update() completed')
         }
       );
-    this.router.navigateByUrl('/overview', { skipLocationChange: false }).then(() => {
-      window.location.reload();
-    });
+    this.router.navigateByUrl('/overview')
   }
 
 
