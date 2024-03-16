@@ -58,10 +58,14 @@ export class AddArticleComponent {
           error: (err) => {
             console.log(err);
           },
-          complete: () => console.log('save() completed')
+          complete: () =>{
+            console.log('save() completed');
+            this.router.navigateByUrl('/overview');
+          }
         }
       );
-    this.router.navigateByUrl('/overview');
+
+
   }
 
   cancel(): void {

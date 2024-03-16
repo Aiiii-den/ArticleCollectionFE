@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiRequestsService} from "../shared/api-requests.service";
 import {Article} from "../shared/article";
 
@@ -7,7 +7,7 @@ import {Article} from "../shared/article";
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css']
 })
-export class OverviewComponent {
+export class OverviewComponent implements OnInit{
   articles!: Article[];
   selectedLanguage: string[] = [];
   selectedTopic: string[] = [];
@@ -18,12 +18,6 @@ export class OverviewComponent {
   ngOnInit(): void {
     this.readAll();
   }
-
-  /*
-  // TODO implement the form to get filter parameter
-  onFilter(): void {
-      this.filterArticles(this.selectedLanguage, this.selectedTopics)
-  }*/
 
   readAll(): void {
     this.ar.getAllEntries().subscribe(

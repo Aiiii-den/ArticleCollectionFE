@@ -72,10 +72,13 @@ export class EditArticleComponent implements OnInit {
           error: (err) => {
             console.log(err);
           },
-          complete: () => console.log('update() completed')
+          complete: () => {
+            console.log('update() completed');
+            this.router.navigateByUrl('/overview')
+          }
         }
       );
-    this.router.navigateByUrl('/overview')
+
   }
 
 
