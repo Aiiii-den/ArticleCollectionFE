@@ -1,4 +1,58 @@
-<p>detail-article works!</p>
-<!--
-  basically like edit-article but without the buttons
--->
+<main class="d-flex min-vh-100">
+  <fieldset class="container  mt-5">
+    <legend *ngIf="article" class="mb-4"> Article Details
+    </legend>
+    <legend *ngIf="!article" class="mb-4">Article overview</legend>
+    <form [formGroup]="form" (ngSubmit)="cancel()">
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="title">Title</label>
+        <div class="col-10">
+          <input type="text" class="form-control" id="title" placeholder="Title"
+                 formControlName="titleControl" readonly/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="source">source</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="source" placeholder="source"
+                 formControlName="sourceControl" readonly/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="link">link</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="link" placeholder="link" formControlName="linkControl"
+                 readonly/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="summary">summary</label>
+        <div class="col-10">
+          <textarea class="col-10 form-control" id="summary" placeholder="Summary" formControlName="summaryControl"
+                    readonly></textarea>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="topic">Topic</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="topic" placeholder="topic"
+                 formControlName="topicControl" readonly/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="language">Language</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="language" placeholder="language"
+                 formControlName="languageControl" readonly/>
+        </div>
+      </div>
+
+      <div class="row ">
+        <button type="button" class="col-5 btn btn-success" (click)="cancel()">Go Back</button>
+        <div class="col-2"></div>
+        <button type="submit" class="col-5 btn btn-success" [routerLink]="['/edit-article', article._id]">Edit</button>
+      </div>
+    </form>
+  </fieldset>
+</main>
+

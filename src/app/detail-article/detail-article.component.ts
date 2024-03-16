@@ -3,6 +3,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {ApiRequestsService} from "../shared/api-requests.service";
 import {Article} from "../shared/article";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-detail-article',
@@ -14,17 +15,18 @@ export class DetailArticleComponent implements OnInit {
   id: string = '';
   article!: Article;
   form = new FormGroup({
-    title: new FormControl<string>(''),
-    source: new FormControl<string>(''),
-    link: new FormControl<string>(''),
-    summary: new FormControl<string>(''),
-    language: new FormControl<string>(''),
-    topic: new FormControl<string>(''),
+    titleControl: new FormControl<string>(''),
+    sourceControl: new FormControl<string>(''),
+    linkControl: new FormControl<string>(''),
+    summaryControl: new FormControl<string>(''),
+    languageControl: new FormControl<string>(''),
+    topicControl: new FormControl<string>(''),
   });
 
   constructor(
     private route: ActivatedRoute,
-    private as: ApiRequestsService
+    private as: ApiRequestsService,
+    private location: Location,
   ) {
   }
 
@@ -40,12 +42,12 @@ export class DetailArticleComponent implements OnInit {
           this.article = response;
           console.log('article', this.article);
           this.form.patchValue({
-            title: this.article?.title,
-            source: this.article?.source,
-            link: this.article?.link,
-            summary: this.article?.summary,
-            language: this.article?.language,
-            topic: this.article?.topic,
+            titleControl: this.article?.title,
+            sourceControl: this.article?.source,
+            linkControl: this.article?.link,
+            summaryControl: this.article?.summary,
+            languageControl: this.article?.language,
+            topicControl: this.article?.topic,
           })
           return this.article;
         },
@@ -54,12 +56,8 @@ export class DetailArticleComponent implements OnInit {
       });
   }
 
-  update(): void {
-
-  }
-
   cancel(): void {
-
+    this.location.back();
   }
 
 }
