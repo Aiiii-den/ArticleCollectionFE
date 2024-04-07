@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/translate-and-save-fe",
+            "outputPath": "dist/article-collection-fe",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "TranslateAndSaveFE:build:production"
+              "browserTarget": "ArticleCollectionFE:build:production"
             },
             "development": {
-              "browserTarget": "TranslateAndSaveFE:build:development"
+              "browserTarget": "ArticleCollectionFE:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TranslateAndSaveFE:build"
+            "browserTarget": "ArticleCollectionFE:build"
           }
         },
         "test": {

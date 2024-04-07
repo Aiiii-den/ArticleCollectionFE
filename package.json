@@ -1,5 +1,5 @@
 {
-  "name": "translate-and-save-fe",
+  "name": "article-collection-fe",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
